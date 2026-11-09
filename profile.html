@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Яндекс Музыка — Моя коллекция</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Надежное подключение иконок Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body>
+    <!-- Навигация -->
+    <!-- ЕДИНЫЙ НАВБАР (для всех страниц) -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary sticky-top"
+    >
+      <div class="container-fluid px-lg-4">
+        <!-- Логотип -->
+        <a
+          class="navbar-brand fw-bold text-white d-flex align-items-center"
+          href="index.html"
+        >
+          <span class="badge bg-warning text-dark me-2 fs-6">Y</span>
+          Музыка
+        </a>
+
+        <!-- Кнопка мобильного меню -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Переключить навигацию"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Ссылки -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" id="nav-index" href="index.html">Главное</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-catalog" href="catalog.html"
+                >Каталог</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-playlists" href="playlists.html"
+                >Плейлисты</a
+              >
+            </li>
+            <!-- Выпадающее меню всех остальных страниц -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Разделы и релизы
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="album.html"
+                    ><i class="bi bi-disc me-2"></i>Альбом дня</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="track.html"
+                    ><i class="bi bi-music-note me-2"></i>Страница трека</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="artist.html"
+                    ><i class="bi bi-person-badge me-2"></i>Исполнитель</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="playlist.html"
+                    ><i class="bi bi-music-note-list me-2"></i>Детальный
+                    плейлист</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Правая часть: Кнопка Плюс (Заявка) и Профиль -->
+          <div class="d-flex align-items-center gap-3">
+            <a
+              href="order.html"
+              class="btn btn-warning btn-sm text-dark fw-bold rounded-pill px-3"
+            >
+              <i class="bi bi-gem me-1"></i> Оформить Плюс
+            </a>
+            <a
+              href="profile.html"
+              class="btn btn-outline-light btn-sm rounded-circle p-1"
+              title="Личный кабинет"
+            >
+              <i class="bi bi-person-fill px-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Профиль пользователя -->
+    <main class="container py-4">
+      <!-- Шапка аккаунта (карточка с аватаром) -->
+      <div
+        class="p-4 p-md-5 mb-4 rounded-4 bg-dark border border-secondary shadow-sm"
+      >
+        <div class="row align-items-center g-3">
+          <div class="col-auto">
+            <div
+              class="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center fw-bold fs-1 shadow"
+              style="width: 85px; height: 85px"
+            >
+              ИС
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+              <h1 class="h3 fw-bold text-white mb-0">Иван Студент</h1>
+              <span class="badge bg-warning text-dark"
+                ><i class="bi bi-gem me-1"></i> Плюс Активен</span
+              >
+            </div>
+            <p class="text-secondary small mb-2">
+              Аккаунт привязан к student@yandex.ru &bull; Подписка до 31.12.2026
+            </p>
+            <div class="d-flex gap-3 text-secondary small">
+              <span><strong>142</strong> трека</span>
+              <span><strong>8</strong> плейлистов</span>
+              <span><strong>15</strong> исполнителей</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-auto text-md-end">
+            <a
+              href="order.html"
+              class="btn btn-outline-warning btn-sm rounded-pill px-3"
+              >Управление подпиской</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Вкладки личного кабинета (Bootstrap Tabs) -->
+      <ul
+        class="nav nav-pills mb-4 border-bottom border-secondary pb-3 gap-2"
+        id="profileTabs"
+        role="tablist"
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active text-white"
+            id="tracks-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#tracks-pane"
+            type="button"
+            role="tab"
+            aria-controls="tracks-pane"
+            aria-selected="true"
+          >
+            <i class="bi bi-heart-fill text-danger me-1"></i> Любимые треки
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link text-white"
+            id="playlists-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#playlists-pane"
+            type="button"
+            role="tab"
+            aria-controls="playlists-pane"
+            aria-selected="false"
+          >
+            <i class="bi bi-music-note-list me-1"></i> Мои плейлисты
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link text-white"
+            id="artists-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#artists-pane"
+            type="button"
+            role="tab"
+            aria-controls="artists-pane"
+            aria-selected="false"
+          >
+            <i class="bi bi-people me-1"></i> Любимые артисты
+          </button>
+        </li>
+      </ul>
+
+      <!-- Содержимое вкладок -->
+      <div class="tab-content" id="profileTabsContent">
+        <!-- Вкладка 1: Треки -->
+        <div
+          class="tab-pane fade show active"
+          id="tracks-pane"
+          role="tabpanel"
+          aria-labelledby="tracks-tab"
+        >
+          <div
+            class="list-group list-group-flush bg-dark rounded-4 p-2 border border-secondary mb-4"
+          >
+            <div
+              class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center track-row border-secondary py-3"
+              onclick="playTrack(1)"
+            >
+              <div class="d-flex align-items-center">
+                <i class="bi bi-heart-fill text-danger me-3"></i>
+                <img
+                  src="https://picsum.photos/seed/track1/80"
+                  width="40"
+                  height="40"
+                  class="rounded me-3"
+                  alt="Трек"
+                />
+                <div>
+                  <div class="fw-semibold">Где прошла ты</div>
+                  <div class="text-secondary small">Кравц & Гио Пика</div>
+                </div>
+              </div>
+              <span class="text-secondary small">2:48</span>
+            </div>
+
+            <div
+              class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center track-row border-secondary py-3"
+              onclick="playTrack(2)"
+            >
+              <div class="d-flex align-items-center">
+                <i class="bi bi-heart-fill text-danger me-3"></i>
+                <img
+                  src="https://picsum.photos/seed/track2/80"
+                  width="40"
+                  height="40"
+                  class="rounded me-3"
+                  alt="Трек"
+                />
+                <div>
+                  <div class="fw-semibold">Дарите женщинам цветы</div>
+                  <div class="text-secondary small">HammAli & Navai</div>
+                </div>
+              </div>
+              <span class="text-secondary small">3:12</span>
+            </div>
+
+            <div
+              class="list-group-item bg-transparent text-white d-flex justify-content-between align-items-center track-row border-secondary py-3"
+              onclick="playTrack(3)"
+            >
+              <div class="d-flex align-items-center">
+                <i class="bi bi-heart-fill text-danger me-3"></i>
+                <img
+                  src="https://picsum.photos/seed/track3/80"
+                  width="40"
+                  height="40"
+                  class="rounded me-3"
+                  alt="Трек"
+                />
+                <div>
+                  <div class="fw-semibold">Комета</div>
+                  <div class="text-secondary small">JONY</div>
+                </div>
+              </div>
+              <span class="text-secondary small">2:36</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вкладка 2: Плейлисты -->
+        <div
+          class="tab-pane fade"
+          id="playlists-pane"
+          role="tabpanel"
+          aria-labelledby="playlists-tab"
+        >
+          <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div
+                class="card ym-card p-3 h-100 text-center d-flex flex-column align-items-center justify-content-center border-dashed py-5"
+              >
+                <i
+                  class="bi bi-plus-circle-dotted text-warning display-4 mb-2"
+                ></i>
+                <h3 class="h6 text-white mb-2">Новый плейлист</h3>
+                <a
+                  href="playlists.html"
+                  class="btn btn-outline-warning btn-sm rounded-pill"
+                  >Создать сборник</a
+                >
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card ym-card p-3 h-100">
+                <img
+                  src="https://picsum.photos/seed/pl1/300"
+                  class="card-img-top ym-card-img mb-2"
+                  alt="Плейлист"
+                />
+                <h4 class="h6 text-white mb-1 text-truncate">
+                  Громкие новинки
+                </h4>
+                <span class="text-secondary small">50 треков</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вкладка 3: Артисты -->
+        <div
+          class="tab-pane fade"
+          id="artists-pane"
+          role="tabpanel"
+          aria-labelledby="artists-tab"
+        >
+          <div class="row g-4">
+            <div class="col-6 col-md-3 text-center">
+              <div class="card ym-card p-3 h-100 align-items-center">
+                <img
+                  src="https://picsum.photos/seed/saluki/200"
+                  class="rounded-circle mb-3 object-fit-cover shadow"
+                  width="120"
+                  height="120"
+                  alt="SALUKI"
+                />
+                <h4 class="h6 text-white mb-1">
+                  <a href="artist.html" class="text-white text-decoration-none"
+                    >SALUKI</a
+                  >
+                </h4>
+                <span
+                  class="badge bg-dark border border-secondary text-secondary"
+                  >3.4M слушателей</span
+                >
+              </div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+              <div class="card ym-card p-3 h-100 align-items-center">
+                <img
+                  src="https://picsum.photos/seed/alb1/200"
+                  class="rounded-circle mb-3 object-fit-cover shadow"
+                  width="120"
+                  height="120"
+                  alt="Баста"
+                />
+                <h4 class="h6 text-white mb-1">
+                  <a href="artist.html" class="text-white text-decoration-none"
+                    >Баста</a
+                  >
+                </h4>
+                <span
+                  class="badge bg-dark border border-secondary text-secondary"
+                  >4.8M слушателей</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 0. Фиксированный плеер (гарантированно отображается) -->
+    <div class="music-player-bar px-3 py-2">
+      <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+          <!-- Слева: Инфо о треке -->
+          <div class="col-6 col-md-3 d-flex align-items-center">
+            <!-- Встроенный SVG, никогда не выдаст ошибку загрузки -->
+            <img
+              id="player-cover"
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23222'/><circle cx='50' cy='50' r='35' fill='%23111' stroke='%23ffcc00' stroke-width='3'/><circle cx='50' cy='50' r='10' fill='%23ffcc00'/></svg>"
+              class="rounded me-3 d-none d-sm-block"
+              width="48"
+              height="48"
+              alt="Обложка"
+            />
+            <div class="text-truncate">
+              <div
+                id="player-title"
+                class="fw-bold text-white small text-truncate"
+              >
+                Где прошла ты
+              </div>
+              <div
+                id="player-artist"
+                class="text-secondary small text-truncate"
+              >
+                Кравц &amp; Гио Пика
+              </div>
+            </div>
+          </div>
+          <!-- Центр: Контролы воспроизведения -->
+          <div class="col-6 col-md-6 text-center">
+            <div
+              class="d-flex justify-content-center align-items-center gap-3 mb-1"
+            >
+              <button class="btn btn-link text-white p-0" type="button">
+                <i class="bi bi-skip-start-fill fs-5"></i>
+              </button>
+              <button
+                id="player-play-btn"
+                class="btn btn-warning rounded-circle p-2 text-dark lh-1"
+                style="width: 36px; height: 36px"
+                type="button"
+              >
+                <i class="bi bi-play-fill fs-5"></i>
+              </button>
+              <button class="btn btn-link text-white p-0" type="button">
+                <i class="bi bi-skip-end-fill fs-5"></i>
+              </button>
+            </div>
+            <div class="d-none d-md-flex align-items-center gap-2">
+              <span class="small text-secondary" style="font-size: 0.75rem"
+                >1:15</span
+              >
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="100"
+                value="45"
+              />
+              <span
+                id="player-duration"
+                class="small text-secondary"
+                style="font-size: 0.75rem"
+                >2:48</span
+              >
+            </div>
+          </div>
+          <!-- Справа: Громкость -->
+          <div
+            class="col-md-3 d-none d-md-flex justify-content-end align-items-center gap-2"
+          >
+            <i class="bi bi-volume-up text-secondary"></i>
+            <input
+              type="range"
+              class="form-range w-50"
+              min="0"
+              max="100"
+              value="70"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+  </body>
+</html>

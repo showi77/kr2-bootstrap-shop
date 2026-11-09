@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Яндекс Музыка — Каталог и чарты</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Надежное подключение иконок Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body>
+    <!-- Навигация -->
+    <!-- ЕДИНЫЙ НАВБАР (для всех страниц) -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary sticky-top"
+    >
+      <div class="container-fluid px-lg-4">
+        <!-- Логотип -->
+        <a
+          class="navbar-brand fw-bold text-white d-flex align-items-center"
+          href="index.html"
+        >
+          <span class="badge bg-warning text-dark me-2 fs-6">Y</span>
+          Музыка
+        </a>
+
+        <!-- Кнопка мобильного меню -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Переключить навигацию"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Ссылки -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" id="nav-index" href="index.html">Главное</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-catalog" href="catalog.html"
+                >Каталог</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-playlists" href="playlists.html"
+                >Плейлисты</a
+              >
+            </li>
+            <!-- Выпадающее меню всех остальных страниц -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Разделы и релизы
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="album.html"
+                    ><i class="bi bi-disc me-2"></i>Альбом дня</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="track.html"
+                    ><i class="bi bi-music-note me-2"></i>Страница трека</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="artist.html"
+                    ><i class="bi bi-person-badge me-2"></i>Исполнитель</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="playlist.html"
+                    ><i class="bi bi-music-note-list me-2"></i>Детальный
+                    плейлист</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Правая часть: Кнопка Плюс (Заявка) и Профиль -->
+          <div class="d-flex align-items-center gap-3">
+            <a
+              href="order.html"
+              class="btn btn-warning btn-sm text-dark fw-bold rounded-pill px-3"
+            >
+              <i class="bi bi-gem me-1"></i> Оформить Плюс
+            </a>
+            <a
+              href="profile.html"
+              class="btn btn-outline-light btn-sm rounded-circle p-1"
+              title="Личный кабинет"
+            >
+              <i class="bi bi-person-fill px-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Каталог -->
+    <main class="container py-4">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html" class="text-secondary text-decoration-none"
+              >Главная</a
+            >
+          </li>
+          <li class="breadcrumb-item active text-white" aria-current="page">
+            Каталог и жанры
+          </li>
+        </ol>
+      </nav>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 fw-bold text-white mb-0">Каталог и Жанры</h1>
+        <button
+          class="btn btn-outline-warning btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#orderModal"
+        >
+          <i class="bi bi-sliders me-1"></i> Доступ по подписке
+        </button>
+      </div>
+
+      <!-- Плитки жанров (Bootstrap Grid) -->
+      <div class="row g-3 mb-5">
+        <div class="col-6 col-md-3">
+          <div
+            class="p-4 rounded-4 text-white fw-bold fs-5 shadow-sm"
+            style="
+              background: linear-gradient(135deg, #e52d27, #b31217);
+              min-height: 110px;
+            "
+          >
+            Хип-хоп
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div
+            class="p-4 rounded-4 text-white fw-bold fs-5 shadow-sm"
+            style="
+              background: linear-gradient(135deg, #11998e, #38ef7d);
+              min-height: 110px;
+            "
+          >
+            Поп
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div
+            class="p-4 rounded-4 text-white fw-bold fs-5 shadow-sm"
+            style="
+              background: linear-gradient(135deg, #8e2de2, #4a00e0);
+              min-height: 110px;
+            "
+          >
+            Рок
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div
+            class="p-4 rounded-4 text-white fw-bold fs-5 shadow-sm"
+            style="
+              background: linear-gradient(135deg, #f12711, #f5af19);
+              min-height: 110px;
+            "
+          >
+            Электроника
+          </div>
+        </div>
+      </div>
+
+      <!-- Таблица: Топ-чарт (table table-dark table-hover) -->
+      <h2 class="h4 fw-bold text-white mb-3">Главный чарт треков</h2>
+      <div
+        class="table-responsive bg-dark rounded-4 p-3 border border-secondary mb-5"
+      >
+        <table class="table table-dark table-hover align-middle mb-0">
+          <thead>
+            <tr class="text-secondary small border-secondary">
+              <th scope="col" style="width: 50px">#</th>
+              <th scope="col">Трек</th>
+              <th scope="col" class="d-none d-md-table-cell">Альбом</th>
+              <th scope="col" class="text-end">Время</th>
+              <th scope="col" class="text-end" style="width: 80px">Действие</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="track-row" onclick="playTrack(1)">
+              <td class="fw-bold text-warning">1</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="https://picsum.photos/seed/track1/80"
+                    width="45"
+                    height="45"
+                    class="rounded me-3"
+                    alt="Обложка"
+                  />
+                  <div>
+                    <div class="text-white fw-semibold">Где прошла ты</div>
+                    <div class="text-secondary small">Кравц & Гио Пика</div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-secondary d-none d-md-table-cell">
+                17 мгновений
+              </td>
+              <td class="text-end text-secondary small">2:48</td>
+              <td class="text-end">
+                <button
+                  class="btn btn-warning btn-sm rounded-circle"
+                  title="Включить"
+                >
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="track-row" onclick="playTrack(2)">
+              <td class="fw-bold text-white">2</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="https://picsum.photos/seed/track2/80"
+                    width="45"
+                    height="45"
+                    class="rounded me-3"
+                    alt="Обложка"
+                  />
+                  <div>
+                    <div class="text-white fw-semibold">
+                      Дарите женщинам цветы
+                    </div>
+                    <div class="text-secondary small">HammAli & Navai</div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-secondary d-none d-md-table-cell">
+                Спешите любить
+              </td>
+              <td class="text-end text-secondary small">3:12</td>
+              <td class="text-end">
+                <button
+                  class="btn btn-warning btn-sm rounded-circle"
+                  title="Включить"
+                >
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="track-row" onclick="playTrack(3)">
+              <td class="fw-bold text-white">3</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="https://picsum.photos/seed/track3/80"
+                    width="45"
+                    height="45"
+                    class="rounded me-3"
+                    alt="Обложка"
+                  />
+                  <div>
+                    <div class="text-white fw-semibold">Комета</div>
+                    <div class="text-secondary small">JONY</div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-secondary d-none d-md-table-cell">
+                Список твоих мыслей
+              </td>
+              <td class="text-end text-secondary small">2:36</td>
+              <td class="text-end">
+                <button
+                  class="btn btn-warning btn-sm rounded-circle"
+                  title="Включить"
+                >
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="track-row" onclick="playTrack(4)">
+              <td class="fw-bold text-white">4</td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img
+                    src="https://picsum.photos/seed/track4/80"
+                    width="45"
+                    height="45"
+                    class="rounded me-3"
+                    alt="Обложка"
+                  />
+                  <div>
+                    <div class="text-white fw-semibold">Пыяла</div>
+                    <div class="text-secondary small">АИГЕЛ</div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-secondary d-none d-md-table-cell">Эдем</td>
+              <td class="text-end text-secondary small">3:30</td>
+              <td class="text-end">
+                <button
+                  class="btn btn-warning btn-sm rounded-circle"
+                  title="Включить"
+                >
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- 0. Фиксированный плеер (гарантированно отображается) -->
+    <div class="music-player-bar px-3 py-2">
+      <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+          <!-- Слева: Инфо о треке -->
+          <div class="col-6 col-md-3 d-flex align-items-center">
+            <!-- Встроенный SVG, никогда не выдаст ошибку загрузки -->
+            <img
+              id="player-cover"
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23222'/><circle cx='50' cy='50' r='35' fill='%23111' stroke='%23ffcc00' stroke-width='3'/><circle cx='50' cy='50' r='10' fill='%23ffcc00'/></svg>"
+              class="rounded me-3 d-none d-sm-block"
+              width="48"
+              height="48"
+              alt="Обложка"
+            />
+            <div class="text-truncate">
+              <div
+                id="player-title"
+                class="fw-bold text-white small text-truncate"
+              >
+                Где прошла ты
+              </div>
+              <div
+                id="player-artist"
+                class="text-secondary small text-truncate"
+              >
+                Кравц &amp; Гио Пика
+              </div>
+            </div>
+          </div>
+          <!-- Центр: Контролы воспроизведения -->
+          <div class="col-6 col-md-6 text-center">
+            <div
+              class="d-flex justify-content-center align-items-center gap-3 mb-1"
+            >
+              <button class="btn btn-link text-white p-0" type="button">
+                <i class="bi bi-skip-start-fill fs-5"></i>
+              </button>
+              <button
+                id="player-play-btn"
+                class="btn btn-warning rounded-circle p-2 text-dark lh-1"
+                style="width: 36px; height: 36px"
+                type="button"
+              >
+                <i class="bi bi-play-fill fs-5"></i>
+              </button>
+              <button class="btn btn-link text-white p-0" type="button">
+                <i class="bi bi-skip-end-fill fs-5"></i>
+              </button>
+            </div>
+            <div class="d-none d-md-flex align-items-center gap-2">
+              <span class="small text-secondary" style="font-size: 0.75rem"
+                >1:15</span
+              >
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="100"
+                value="45"
+              />
+              <span
+                id="player-duration"
+                class="small text-secondary"
+                style="font-size: 0.75rem"
+                >2:48</span
+              >
+            </div>
+          </div>
+          <!-- Справа: Громкость -->
+          <div
+            class="col-md-3 d-none d-md-flex justify-content-end align-items-center gap-2"
+          >
+            <i class="bi bi-volume-up text-secondary"></i>
+            <input
+              type="range"
+              class="form-range w-50"
+              min="0"
+              max="100"
+              value="70"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно подписки -->
+    <div
+      class="modal fade"
+      id="orderModal"
+      tabindex="-1"
+      aria-labelledby="orderModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-secondary">
+          <div class="modal-header border-secondary">
+            <h2 class="modal-title h5" id="orderModalLabel">
+              Подписка Яндекс Плюс
+            </h2>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Закрыть"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="order-name-cat" class="form-label small"
+                  >Ваше имя</label
+                >
+                <input
+                  id="order-name-cat"
+                  type="text"
+                  class="form-control bg-secondary text-white border-0"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="order-email-cat" class="form-label small"
+                  >E-mail</label
+                >
+                <input
+                  id="order-email-cat"
+                  type="email"
+                  class="form-control bg-secondary text-white border-0"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-warning w-100 fw-bold">
+                Подключить
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+/* css/custom.css */
+:root {
+  --ym-bg-base: #121212;
+  --ym-bg-surface: #181818;
+  --ym-bg-card: #202020;
+  --ym-bg-hover: #2a2a2a;
+  --ym-yellow: #ffcc00;
+  --ym-yellow-hover: #e6b800;
+  --ym-text-main: #ffffff;
+  --ym-text-muted: #a0a0a0;
+}
+
+body {
+  background-color: var(--ym-bg-base);
+  color: var(--ym-text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding-bottom: 90px; /* Отступ под фиксированный плеер */
+}
+
+/* Фирменные кнопки Яндекс Музыки */
+.btn-ym-primary {
+  background-color: var(--ym-yellow);
+  color: #000000;
+  font-weight: 600;
+  border: none;
+}
+.btn-ym-primary:hover {
+  background-color: var(--ym-yellow-hover);
+  color: #000000;
+}
+
+/* Карточки альбомов и треков */
+.ym-card {
+  background-color: var(--ym-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-radius: 12px;
+}
+.ym-card:hover {
+  background-color: var(--ym-bg-hover);
+  transform: translateY(-4px);
+}
+
+.ym-card-img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Строки списков треков */
+.track-row {
+  transition: background-color 0.15s ease;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.track-row:hover {
+  background-color: var(--ym-bg-hover) !important;
+}
+
+/* Плеер внизу экрана */
+.music-player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  background-color: rgba(24, 24, 24, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1050;
+}
+
+/* Кастомизация ползунков */
+.form-range::-webkit-slider-thumb {
+  background-color: var(--ym-yellow);
+}
+.form-range::-moz-range-thumb {
+  background-color: var(--ym-yellow);
+}
+
+/* Аккордеон в тёмной теме */
+.accordion-button:not(.collapsed) {
+  background-color: var(--ym-bg-hover);
+  color: var(--ym-yellow);
+}
+.accordion-item {
+  background-color: var(--ym-bg-card);
+  border-color: rgba(255, 255, 255, 0.1);
+}
